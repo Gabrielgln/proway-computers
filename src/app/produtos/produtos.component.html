@@ -1,0 +1,22 @@
+<section class="product-list">
+    <!---usando um *ng* do node, com o for, que vai usar o objeto produto percorrendo pela lista de produtos-->
+    <div class="product-list__card" *ngFor=" let produto of produtos">
+        <!---quando clicar no produto ele vai para o rota que tem o id do produto clicado-->
+        <a routerLink="/produtos/{{produto.id}}" class="product-list__link">
+            <!--<img>[src]=vai receber o objeto produto tem acesso ao atributo imagem que está em produtos.ts-->
+            <img [src]="produto.imagem">
+            <h2 class="product-item__name">
+                <!--objeto produto pegando o atributo descricao que tem em produtos-->
+                {{ produto.descricao }}
+            </h2>   
+            <p class="product-item__price">
+                <!--usando o pipe currency para formatar pra real-->
+                {{produto.preco | currency: "BRL"}}
+            </p>
+            <p class="product-item__price-description">
+                {{produto.descricaoPreco}}
+            </p>
+            <button class="product-item__buy-button" type="button">Comprar</button>
+        </a>
+    </div>
+</section>

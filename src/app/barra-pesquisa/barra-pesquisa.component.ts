@@ -1,0 +1,26 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-barra-pesquisa',
+  templateUrl: './barra-pesquisa.component.html',
+  styleUrls: ['./barra-pesquisa.component.css']
+})
+export class BarraPesquisaComponent {
+  descricao = "";
+
+  constructor(
+    private router: Router
+  ){}
+
+
+  pesquisar(){
+    if(this.descricao){
+      //se tiver descrição, ele vai navegar pela pagina de produtos pegando a query que contem a descricao passada pelo usuario
+      this.router.navigate(["produtos"], {queryParams: { descricao: this.descricao}});
+      return;
+    }
+    this.router.navigate(["produtos"]);
+  }
+
+}

@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+/*usa o nome da classe no caso "container" e dá um espaço e
+coloca a tag que está dentro da tag que tem a class="container"*/
+.container i {
+    font-size: 200px;
+}
+
+.container h2 {
+    font-size: 44px;
+}

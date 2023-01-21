@@ -1,0 +1,6 @@
+<!-- form da barra de pesquisar que toda vez, que for clicado vai chamar a função de pesquisar -->
+<form class="search-form" (ngSubmit)="pesquisar()">
+    <!-- imput do tipo texto, e toda vez que for digitado algo nesse input, ele vai para o atributo da descricao do produto, guardando no ngmodel -->
+    <input type="text" name="descricao" [(ngModel)]="descricao">
+    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+</form>

@@ -1,0 +1,23 @@
+<h2 class="cart-title">Carrinho</h2>
+<!-- passando o comando if para verifica se o carrinho tem mais que 0 unidades no carrinho -->
+<!-- caso não tenha produto no carrinho chama diretiva "semProduto" -->
+<div *ngIf="itensCarrinho.length > 0; else semProduto">
+    <ul>
+        <li *ngFor="let itemCarrinho of itensCarrinho">
+            <img [src]="itemCarrinho.imagem">
+            <p>{{itemCarrinho.descricao}}</p>
+            <p>Preço: {{itemCarrinho.preco | currency:"BRL"}}</p>
+            <label>
+                Quantidade:
+                <!-- apos o usuario digitar a quantidade, calcule o valor -->
+                <input type="number" [(ngModel)]="itemCarrinho.quantidade" (change)="calcularTotal()"> 
+            </label>
+            <!-- usando a função click passando a função de remoção para chamar a função de remover que está no serviço de carrinho -->
+            <button class="remove-button" (click)="removerProdutoCarrinho(itemCarrinho.id)"><i class="fa-solid fa-xmark"></i></button>
+        </li>
+    </ul>
+    <h2 class="cart-total">Total: {{total | currency:"BRL"}}</h2>
+    <button class="buy-button" (click)="comprar()">Comprar</button>
+</div>
+<!-- tag so pode ser usada quando possuí uma diretiva, que no caso é "semProduto" -->
+<ng-template #semProduto>Nenhum produto foi adicionado ao carrinho</ng-template>

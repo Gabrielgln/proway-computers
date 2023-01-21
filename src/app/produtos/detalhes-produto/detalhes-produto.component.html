@@ -1,0 +1,22 @@
+<section class="product__container">
+    <div class="product-image__container">
+        <!--usa o ? quando o objeto tambem pode ser indefinido ou nulo-->
+        <img [src]="produto?.imagem">
+    </div>
+    <div class="product-description__container">        
+        <h2 class="product__name">{{produto?.descricao}}</h2>
+        <h3 class="product__price">{{produto?.preco | currency:"BRL"}}</h3>
+        <p>Estoque disponível</p>
+        <label>
+            Quantidade:
+            <!--o valor digitado pelo usuario vai para a variavel "quantidade" que ta no ts
+            e passando o min digitado pelo usuario que é 1-->
+            <input type="number" [(ngModel)]="quantidade" min="1">
+            unidade(s)
+        </label>
+        <p class="product__avaiability">
+            {{produto?.quantidadeEstoque}} unidade(s) em estoque
+        </p>
+        <button (click)="adicionarAoCarrinho()">Adicionar ao carrinho</button>
+    </div>
+</section>
